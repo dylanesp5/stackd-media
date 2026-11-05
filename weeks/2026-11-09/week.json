@@ -1,0 +1,341 @@
+{
+  "week": "2026-11-09",
+  "posts": [
+    {
+      "id": "p1",
+      "category": "education",
+      "audience": "Newer cash-game players who play too many hands from early position",
+      "format": "carousel",
+      "dueAt": "2026-11-09T19:00:00-05:00",
+      "hook": "The button is the best seat at the table. Here's why.",
+      "caption": "The button is the best seat at the table, and it isn't close.\n\nYou act last on every street after the flop. That means you see what everyone else does before you decide, and you get to pick the size of the pot.\n\nThat's why good players open far more hands on the button than under the gun. Same cards, very different spot.\n\nSave this for your next session. Which seat do you find hardest to play?\n\n#poker #pokerstrategy #texasholdem #cashgame",
+      "hashtags": [
+        "#poker",
+        "#pokerstrategy",
+        "#texasholdem",
+        "#cashgame"
+      ],
+      "cta": "Save this, and comment the seat you find hardest",
+      "slides": [
+        {
+          "layout": "cover",
+          "kicker": "Position 101",
+          "title": "Same hand.\n*Different seat.*\nDifferent play.",
+          "cards": [
+            "Kd",
+            "9d"
+          ],
+          "sub": "Why the button wins more than any other seat.",
+          "alt": "Title slide: Same hand, different seat, different play. A king and nine of diamonds below it."
+        },
+        {
+          "layout": "list",
+          "kicker": "Acting last means",
+          "title": "Three edges you\nget for *free*",
+          "items": [
+            {
+              "title": "You see their move first",
+              "body": "Check, bet or raise: you decide with more information."
+            },
+            {
+              "title": "You control the pot size",
+              "body": "Check behind to keep it small, bet to build it."
+            },
+            {
+              "title": "Your bluffs work more often",
+              "body": "A check from them is often a sign of weakness."
+            }
+          ],
+          "alt": "Slide listing three edges of acting last: you see their move first, you control the pot size, and your bluffs work more often."
+        },
+        {
+          "layout": "compare",
+          "kicker": "In practice",
+          "title": "Open *wider* late,\n*tighter* early",
+          "left": {
+            "label": "Under the gun",
+            "items": [
+              "Six or more players still to act",
+              "Out of position after the flop",
+              "Only strong hands"
+            ]
+          },
+          "right": {
+            "label": "On the button",
+            "items": [
+              "Only the blinds left to act",
+              "In position every street",
+              "Many more hands open"
+            ]
+          },
+          "alt": "Comparison slide: under the gun has many players left to act and calls for strong hands only; on the button only the blinds are left, so many more hands can be opened."
+        },
+        {
+          "layout": "cta",
+          "title": "Train every seat\nbefore you sit down.",
+          "body": "Preflop ranges for 6-max and 8-max in Stackd.\nComing soon to the App Store.",
+          "pill": "stackdpoker.app",
+          "alt": "Closing slide with the Stackd logo: Train every seat before you sit down. Coming soon to the App Store, stackdpoker.app."
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "category": "meme",
+      "audience": "Regular live players",
+      "format": "reel",
+      "dueAt": "2026-11-10T19:30:00-05:00",
+      "hook": "Every poker player has had this text conversation.",
+      "caption": "\"How's poker going?\" is the hardest question in the game.\n\nThe honest answer is in the numbers, not in the last hand you remember.\n\nTag the friend who is \"up overall\". ♠\n\n#poker #pokerlife #pokermemes #livepoker",
+      "hashtags": [
+        "#poker",
+        "#pokerlife",
+        "#pokermemes",
+        "#livepoker"
+      ],
+      "cta": "Tag a friend",
+      "coverAlt": "Text conversation titled 'Are you up this year?' between a friend and a poker player who keeps dodging the question.",
+      "reel": {
+        "layout": "chat",
+        "kicker": "The yearly check-in",
+        "title": "Are you *up* this year?",
+        "messages": [
+          {
+            "from": "them",
+            "name": "Friend",
+            "text": "So are you up this year?"
+          },
+          {
+            "from": "me",
+            "text": "Up overall"
+          },
+          {
+            "from": "them",
+            "name": "Friend",
+            "text": "Overall since when"
+          },
+          {
+            "from": "me",
+            "text": "Since the session I won"
+          },
+          {
+            "from": "them",
+            "name": "Friend",
+            "text": "Do you track it?"
+          },
+          {
+            "from": "me",
+            "text": "In my head 🧠"
+          }
+        ],
+        "outro": {
+          "title": "Your head is not\na bankroll tracker.",
+          "body": "Stackd · coming soon"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "category": "feature",
+      "audience": "Players who study preflop but don't know why the chart says what it says",
+      "format": "carousel",
+      "dueAt": "2026-11-11T19:00:00-05:00",
+      "hook": "Knowing the right play isn't enough. You need to know why.",
+      "caption": "Memorizing a chart gets you through the spots you've seen. Knowing why gets you through the ones you haven't.\n\nIn Stackd's preflop trainer, every answer comes with a \"Why?\": the reason behind the play, in plain words, plus what changes against tight, loose or sticky players.\n\nRanges for 6-max and 8-max, 100 and 200 big blinds. Coming soon to the App Store.\n\n#poker #pokerstrategy #preflop #pokertraining",
+      "hashtags": [
+        "#poker",
+        "#pokerstrategy",
+        "#preflop",
+        "#pokertraining"
+      ],
+      "cta": "Follow for launch",
+      "slides": [
+        {
+          "layout": "statement",
+          "kicker": "Preflop trainer",
+          "title": "Know *why*,\nnot just what.",
+          "body": "A chart tells you the play. Stackd tells you the reason.",
+          "alt": "Title slide reading 'Know why, not just what. A chart tells you the play. Stackd tells you the reason.'"
+        },
+        {
+          "layout": "screenshot",
+          "kicker": "Step 1",
+          "title": "Answer a *real spot*",
+          "screenshot": "trainer",
+          "alt": "Screenshot of the Stackd trainer: a poker table with the player's hand and the answer buttons, showing how often the chart takes each action."
+        },
+        {
+          "layout": "screenshot",
+          "kicker": "Step 2",
+          "title": "Tap *Why?*",
+          "screenshot": "why",
+          "alt": "Screenshot of the Why? sheet in Stackd explaining the reason behind the answer and how to adjust against different players.",
+          "crop": "bottom"
+        },
+        {
+          "layout": "cta",
+          "title": "Study the reason,\nnot the chart.",
+          "body": "Coming soon to the App Store.",
+          "alt": "Closing slide with the Stackd logo: Study the reason, not the chart. Coming soon to the App Store."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "category": "bankroll",
+      "audience": "Players who chase losses or play above their bankroll",
+      "format": "carousel",
+      "dueAt": "2026-11-12T19:00:00-05:00",
+      "hook": "Most bankrolls don't die from bad luck. They die from one bad night.",
+      "caption": "Most bankrolls don't go broke from a downswing. They go broke from one night of chasing it.\n\nA few rules that keep a bad session from becoming a bad month:\n\n• Decide your stop before you sit down\n• Never move up to win it back\n• Write the result down, even when it hurts\n\nWhich one do you break most? Be honest.\n\n#poker #bankrollmanagement #pokermindset #pokerlife",
+      "hashtags": [
+        "#poker",
+        "#bankrollmanagement",
+        "#pokermindset",
+        "#pokerlife"
+      ],
+      "cta": "Comment the rule you break most",
+      "slides": [
+        {
+          "layout": "statement",
+          "kicker": "Bankroll",
+          "title": "Bankrolls rarely die from bad luck.\nThey die from *one bad night.*",
+          "titleSize": 96,
+          "alt": "Title slide: Bankrolls rarely die from bad luck. They die from one bad night."
+        },
+        {
+          "layout": "compare",
+          "kicker": "When you're stuck",
+          "title": "Chasing vs. *a plan*",
+          "left": {
+            "label": "Chasing",
+            "items": [
+              "Moving up to win it back",
+              "One more orbit, again",
+              "Not counting the loss"
+            ]
+          },
+          "right": {
+            "label": "A plan",
+            "items": [
+              "Stop set before you sit",
+              "Same stakes, or lower",
+              "Every result written down"
+            ]
+          },
+          "alt": "Comparison slide: chasing means moving up to win it back and not counting the loss; a plan means a stop set in advance, same or lower stakes, and writing every result down."
+        },
+        {
+          "layout": "cta",
+          "title": "Write it down.\nEvery session.",
+          "body": "Stackd keeps your bankroll honest.\nComing soon to the App Store.",
+          "alt": "Closing slide with the Stackd logo: Write it down, every session. Stackd keeps your bankroll honest. Coming soon to the App Store."
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "category": "meme",
+      "audience": "Anyone who has played poker",
+      "format": "single",
+      "dueAt": "2026-11-13T18:30:00-05:00",
+      "hook": "One winning session and suddenly you're a genius.",
+      "caption": "One winning session and the brain goes straight to \"maybe I should play for a living.\" 😅\n\nThe fix is boring: look at a few hundred hours, not one night.\n\nTag the friend who already picked out a pro nickname.\n\n#poker #pokermemes #pokerlife #pokerplayer",
+      "hashtags": [
+        "#poker",
+        "#pokermemes",
+        "#pokerlife",
+        "#pokerplayer"
+      ],
+      "cta": "Tag a friend",
+      "slides": [
+        {
+          "layout": "cover",
+          "kicker": "Me after one good night",
+          "title": "\"Maybe I should\nplay for a *living*.\"",
+          "cards": [
+            "Ah",
+            "Ad"
+          ],
+          "sub": "Sample size: one session.",
+          "alt": "Meme graphic: Me after one good night: 'Maybe I should play for a living.' A pair of aces below it, with the line 'Sample size: one session.'"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "category": "education",
+      "audience": "Players who use one 3-bet size everywhere",
+      "format": "reel",
+      "dueAt": "2026-11-14T12:00:00-05:00",
+      "hook": "Your 3-bet size should depend on your seat.",
+      "caption": "One 3-bet size for every spot is leaving money on the table.\n\nA common starting point in cash games:\n• In position: about 3 times the open\n• Out of position: about 4 times the open\n\nOut of position you play the rest of the hand at a disadvantage, so you make it more expensive to call.\n\nStarting points, not laws. Save it for your next session.\n\n#poker #pokerstrategy #cashgame #pokertips",
+      "hashtags": [
+        "#poker",
+        "#pokerstrategy",
+        "#cashgame",
+        "#pokertips"
+      ],
+      "cta": "Save for your next session",
+      "coverAlt": "Reel cover: How big should your 3-bet be? The answer depends on your position.",
+      "reel": {
+        "layout": "steps",
+        "kicker": "Quick fix",
+        "title": "How big is\nyour *3-bet*?",
+        "steps": [
+          {
+            "title": "In position",
+            "body": "About *3×* the open.\nThey raise 3 BB, you make it about 9."
+          },
+          {
+            "title": "Out of position",
+            "body": "About *4×* the open.\nThey raise 3 BB, you make it about 12."
+          },
+          {
+            "title": "Why bigger?",
+            "body": "Out of position you play every street at a disadvantage. Make calling cost more."
+          }
+        ],
+        "outro": {
+          "title": "Train your ranges\nwith Stackd.",
+          "body": "Coming soon to the App Store"
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "category": "engagement",
+      "audience": "The whole poker community",
+      "format": "single",
+      "dueAt": "2026-11-15T12:00:00-05:00",
+      "hook": "Your move. No solver, just your gut.",
+      "caption": "Your move. 100 BB deep, cash game.\n\nThe cutoff opens to 2.5 BB. You're on the button with A5 suited.\n\nA, B, C or D? Drop your answer and your reason in the comments.\n\n#poker #pokerstrategy #texasholdem #pokerquiz",
+      "hashtags": [
+        "#poker",
+        "#pokerstrategy",
+        "#texasholdem",
+        "#pokerquiz"
+      ],
+      "cta": "Comment A, B, C or D",
+      "slides": [
+        {
+          "layout": "question",
+          "kicker": "Your move · 100 BB",
+          "title": "CO opens 2.5 BB.\nYou're on the *button*.",
+          "cards": [
+            "As",
+            "5s"
+          ],
+          "options": [
+            "Fold",
+            "Call",
+            "3-bet to about 8 BB",
+            "Go all-in"
+          ],
+          "sub": "Comment your answer and why.",
+          "alt": "Quiz graphic: the cutoff opens to 2.5 big blinds and you are on the button with ace-five of spades. Options: A fold, B call, C 3-bet to about 8 big blinds, D go all-in."
+        }
+      ]
+    }
+  ]
+}

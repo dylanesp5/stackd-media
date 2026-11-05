@@ -1,0 +1,321 @@
+<title>Stackd Post Review</title>
+<style>
+  :root {
+    --bg: #0a0a0c; --card: #141417; --raised: #1e1e23; --border: #26262d; --text: #ffffff; --soft: #d4d4da;
+    --muted: #a1a1ad; --faint: #80808c; --accent: #8b6cff; --accent-text: #b9a5ff; --accent-soft: #1c1830;
+    --good: #34d399; --good-soft: #12261f; --bad: #f87171; --bad-soft: #2a1618; --warn: #f5a524; --warn-soft: #2b1f08;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font: 15px/1.45 Inter, -apple-system, system-ui, sans-serif; margin: 0; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 560px; margin: 0 auto; padding-inline: 16px; padding-block: 18px 80px; }
+  header { display: flex; align-items: center; gap: 12px; }
+  header h1 { font-size: 20px; margin: 0; letter-spacing: -0.3px; }
+  .spade { width: 34px; height: 34px; border-radius: 9px; background: #13111b; display: grid; place-items: center; color: var(--accent); font-size: 20px; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .weeks { display: flex; gap: 8px; overflow-x: auto; margin: 16px 0 6px; padding-bottom: 4px; }
+  .chip { flex: none; border: 1px solid var(--border); background: var(--card); color: var(--soft); border-radius: 999px; padding: 7px 13px; font: inherit; font-size: 13px; cursor: pointer; }
+  .chip.on { background: var(--accent-soft); border-color: #3b3360; color: var(--accent-text); font-weight: 600; }
+  .bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 10px 0 14px; flex-wrap: wrap; }
+  .counts { color: var(--muted); font-size: 13px; }
+  .report { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 14px 16px; margin-bottom: 14px; white-space: pre-wrap; color: var(--soft); font-size: 14px; }
+  .report b { color: var(--text); }
+  .post { background: var(--card); border: 1px solid var(--border); border-radius: 20px; margin-bottom: 18px; overflow: hidden; }
+  .post-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 12px 14px; }
+  .when { font-weight: 600; font-size: 14px; }
+  .tag { font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--accent-text); }
+  .status { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .s-pending { background: var(--raised); color: var(--soft); }
+  .s-scheduled { background: var(--good-soft); color: var(--good); }
+  .s-declined { background: var(--bad-soft); color: var(--bad); }
+  .s-changes, .s-scheduling { background: var(--warn-soft); color: var(--warn); }
+  .s-failed { background: var(--bad-soft); color: var(--bad); }
+  .media { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: #000; }
+  .media > * { flex: none; width: 100%; scroll-snap-align: center; display: block; aspect-ratio: 4 / 5; object-fit: contain; background: #000; }
+  .media video { aspect-ratio: 9 / 16; max-height: 70vh; }
+  .dots { text-align: center; color: var(--faint); font-size: 12px; padding: 6px 0 0; }
+  .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 12px; }
+  .caption { white-space: pre-wrap; color: var(--soft); font-size: 14.5px; }
+  .meta { color: var(--muted); font-size: 12.5px; }
+  .note { border-radius: 12px; padding: 10px 12px; font-size: 13.5px; }
+  .note.warn { background: var(--warn-soft); color: #f7c873; }
+  .note.bad { background: var(--bad-soft); color: #fca5a5; }
+  .note.good { background: var(--good-soft); color: #6ee7b7; }
+  .row { display: flex; gap: 8px; }
+  .row > button { flex: 1; }
+  button.b { font: inherit; font-weight: 700; font-size: 14px; border-radius: 12px; padding: 12px 10px; border: 1px solid var(--border); background: var(--raised); color: var(--text); cursor: pointer; min-height: 44px; }
+  button.b:disabled { opacity: .5; cursor: default; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.danger { color: var(--bad); }
+  button.link { background: none; border: 0; color: var(--accent-text); font: inherit; font-weight: 600; padding: 6px 0; cursor: pointer; }
+  textarea { width: 100%; min-height: 84px; resize: vertical; font: inherit; font-size: 14.5px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; }
+  textarea:focus { outline: 2px solid #3b3360; }
+  .panel { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .label { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+  .empty { text-align: center; color: var(--muted); padding: 50px 10px; }
+  .toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); background: var(--raised); border: 1px solid var(--border); color: var(--text); padding: 10px 16px; border-radius: 12px; font-size: 14px; max-width: calc(100% - 32px); }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="spade">♠</div>
+    <div>
+      <h1>Stackd Post Review</h1>
+      <div class="sub">Nothing reaches Instagram until you tap Approve.</div>
+    </div>
+  </header>
+  <div class="weeks" id="weeks"></div>
+  <div id="report"></div>
+  <div class="bar"><div class="counts" id="counts"></div><button class="b" id="approveAll" hidden>Approve all waiting</button></div>
+  <div id="list"><div class="empty">Loading posts…</div></div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const CHANNEL = '6aecd416e29c69a1717465c0';
+const ORG = '6aecd344dc988902a9da6a44';
+const BRAND_RULES = `Stackd is an iPhone poker bankroll tracker and preflop trainer, not yet on the App Store (calls to action say "coming soon" or point to stackdpoker.app / link in bio). Voice: short, direct, a bit dry, like a regular at the table; plain words; one or two emoji at most; 3 to 5 hashtags at the end. Never promise winnings, never call it a solver, never invent features, users, reviews or numbers, never mention Android, a web app, AI coaching or postflop training.`;
+
+let db = null, mcp = null, sample = null;
+let posts = [], reports = {}, config = {};
+let week = null;
+const open = {}; // postId -> 'edit' | 'decline' | null
+const drafts = {}; // postId -> { note, caption, rewritten }
+const busy = {};
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+function toast(text) {
+  const t = $('toast'); t.textContent = text; t.hidden = false;
+  clearTimeout(toast.timer); toast.timer = setTimeout(() => (t.hidden = true), 3200);
+}
+function when(iso) {
+  const d = new Date(iso);
+  return d.toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' ET';
+}
+const STATUS = { pending: 'Waiting for you', scheduling: 'Scheduling…', scheduled: 'Scheduled', declined: 'Declined', changes: 'Being redone', failed: 'Needs attention' };
+
+function render() {
+  const weeks = [...new Set(posts.map((p) => p.week))].sort().reverse();
+  if (!week || !weeks.includes(week)) week = weeks.find((w) => posts.some((p) => p.week === w && p.status === 'pending')) || weeks[0] || null;
+  $('weeks').innerHTML = weeks.map((w) => `<button class="chip ${w === week ? 'on' : ''}" data-week="${w}">Week of ${new Date(w + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</button>`).join('');
+  const r = reports[week];
+  $('report').innerHTML = r?.text ? `<div class="report"><b>Last week's results</b>\n${esc(r.text)}</div>` : '';
+  const list = posts.filter((p) => p.week === week).sort((a, b) => a.dueAt.localeCompare(b.dueAt));
+  if (!list.length) {
+    $('list').innerHTML = `<div class="empty">No posts yet. The next batch arrives Sunday evening.</div>`;
+    $('counts').textContent = ''; $('approveAll').hidden = true; return;
+  }
+  const c = (s) => list.filter((p) => p.status === s).length;
+  $('counts').textContent = `${c('pending')} waiting · ${c('scheduled')} scheduled · ${c('changes')} being redone · ${c('declined')} declined`;
+  $('approveAll').hidden = c('pending') < 2 || !mcp;
+  $('approveAll').textContent = `Approve all ${c('pending')} waiting`;
+  $('list').innerHTML = list.map(card).join('');
+}
+
+function card(p) {
+  const media = (p.preview || []).map((m) => m.kind === 'video'
+    ? `<video src="${esc(m.src)}" ${p.coverSrc ? `poster="${esc(p.coverSrc)}"` : ''} controls playsinline preload="metadata"></video>`
+    : `<img src="${esc(m.src)}" alt="${esc(m.alt)}" loading="lazy">`).join('');
+  const many = (p.preview || []).length > 1 ? `<div class="dots">${p.preview.length} slides · swipe</div>` : '';
+  const s = p.status;
+  let actions = '';
+  if (s === 'pending' || s === 'failed') {
+    actions = `<div class="row">
+      <button class="b primary" data-act="approve" data-id="${p.id}" ${busy[p.id] || !mcp ? 'disabled' : ''}>${s === 'failed' ? 'Try again' : 'Approve'}</button>
+      <button class="b" data-act="edit" data-id="${p.id}">Edit</button>
+      <button class="b danger" data-act="decline" data-id="${p.id}">Decline</button></div>
+      ${!mcp ? '<div class="note warn">Buffer can’t be reached from this view. Open this page in the Claude app or claude.ai to approve.</div>' : ''}`;
+  } else if (s === 'scheduled') {
+    actions = `<div class="note good">In Buffer for ${esc(when(p.scheduledFor || p.dueAt))}.</div>
+      <button class="link" data-act="unschedule" data-id="${p.id}">Take it out of Buffer</button>`;
+  } else if (s === 'declined') {
+    actions = `<div class="note bad">Declined${p.declineReason ? ': ' + esc(p.declineReason) : ''}</div>
+      <button class="link" data-act="undo" data-id="${p.id}">Undo</button>`;
+  } else if (s === 'changes') {
+    actions = `<div class="note warn">Being redone: “${esc(p.changeRequest)}”. You’ll get a notification when the new version is ready.</div>`;
+  } else if (s === 'scheduling') {
+    actions = `<div class="note warn">Scheduling in Buffer…</div>`;
+  }
+  if (s === 'failed' && p.error) actions = `<div class="note bad">${esc(p.error)}</div>` + actions;
+
+  let panel = '';
+  const d = drafts[p.id] || (drafts[p.id] = { note: '', caption: p.caption });
+  if (open[p.id] === 'edit') {
+    panel = `<div class="panel">
+      <div class="label">What should change?</div>
+      <textarea data-field="note" data-id="${p.id}" placeholder="e.g. shorter caption, funnier hook, use AK instead of A5…">${esc(d.note)}</textarea>
+      <div class="row">
+        <button class="b" data-act="rewrite" data-id="${p.id}" ${busy[p.id] || !sample ? 'disabled' : ''}>Rewrite caption</button>
+        <button class="b" data-act="redo" data-id="${p.id}" ${busy[p.id] ? 'disabled' : ''}>Redo picture/video</button>
+      </div>
+      <div class="label">Caption${d.rewritten ? ' (rewritten, edit freely)' : ' (edit freely)'}</div>
+      <textarea data-field="caption" data-id="${p.id}" style="min-height:180px">${esc(d.caption)}</textarea>
+      <div class="row"><button class="b primary" data-act="saveCaption" data-id="${p.id}">Save caption</button><button class="b" data-act="close" data-id="${p.id}">Cancel</button></div>
+    </div>`;
+  } else if (open[p.id] === 'decline') {
+    panel = `<div class="panel">
+      <div class="label">Why not? (helps the next batch)</div>
+      <textarea data-field="reason" data-id="${p.id}" placeholder="e.g. too salesy, wrong tone, poker take is off…">${esc(d.reason || '')}</textarea>
+      <div class="row"><button class="b danger" data-act="confirmDecline" data-id="${p.id}">Decline post</button><button class="b" data-act="close" data-id="${p.id}">Cancel</button></div>
+    </div>`;
+  }
+
+  return `<article class="post" id="post-${p.id}">
+    <div class="post-top"><div><div class="tag">${esc(p.category)} · ${esc(p.format)}</div><div class="when">${esc(when(p.dueAt))}</div></div>
+      <span class="status s-${s}">${STATUS[s] || esc(s)}</span></div>
+    <div class="media">${media}</div>${many}
+    <div class="body">
+      <div class="caption">${esc(p.caption)}</div>
+      <div class="meta">Audience: ${esc(p.audience)} · v${p.version || 1}</div>
+      ${actions}${panel}
+    </div></article>`;
+}
+
+// ---------- actions ----------
+const docRef = (id) => db.collection('posts').doc(id);
+const logEntry = (action, note) => ({ at: new Date().toISOString(), action, ...(note ? { note } : {}) });
+async function patch(p, fields, action, note) {
+  await docRef(p.id).update({ ...fields, updatedAt: new Date().toISOString(), log: [...(p.log || []), logEntry(action, note)] });
+}
+
+function bufferInput(p) {
+  const isReel = p.format === 'reel';
+  const assets = (p.media || []).map((m) => m.kind === 'video'
+    ? { video: { url: m.url } }
+    : { image: { url: m.url, metadata: { altText: m.alt || '' } } });
+  const future = new Date(p.dueAt).getTime() > Date.now() + 10 * 60 * 1000;
+  return {
+    input: {
+      channelId: CHANNEL, schedulingType: 'automatic', text: p.caption, assets,
+      metadata: { instagram: { type: isReel ? 'reel' : 'post', shouldShareToFeed: true } },
+      ...(future ? { mode: 'customScheduled', dueAt: p.dueAt } : { mode: 'addToQueue' }),
+    },
+    future,
+  };
+}
+function findId(x, depth = 0) {
+  if (!x || typeof x !== 'object' || depth > 4) return null;
+  if (typeof x.id === 'string' && /^[a-f\d]{24}$/.test(x.id)) return x.id;
+  for (const v of Object.values(x)) { const f = findId(v, depth + 1); if (f) return f; }
+  return null;
+}
+function mcpMessage(e) {
+  switch (e?.code) {
+    case 'needs_reauth': return 'Your Buffer connection expired. Reconnect Buffer in claude.ai Settings → Connectors, then try again.';
+    case 'server_not_connected': return 'Buffer isn’t connected for you. Add it in claude.ai Settings → Connectors.';
+    case 'not_in_manifest': return 'This page isn’t allowed to use Buffer yet. Allow Buffer in this page’s permissions and try again.';
+    case 'approval_required': return 'Buffer needs your OK for this. Tap Try again and allow it.';
+    case 'tool_error': return 'Buffer refused it: ' + (e.message || 'unknown reason');
+    default: return 'Couldn’t reach Buffer (' + (e?.code || 'error') + '). ' + (e?.message || '');
+  }
+}
+
+async function approve(p) {
+  if (busy[p.id]) return;
+  busy[p.id] = true; render();
+  try {
+    const fresh = (await docRef(p.id).get()).data();
+    if (fresh?.bufferPostId) { toast('Already in Buffer'); return; }
+    if (!['pending', 'failed'].includes(fresh?.status)) { toast('This post changed. Check it again.'); return; }
+    await patch(fresh ? { ...p, ...fresh } : p, { status: 'scheduling', error: null }, 'approve');
+    const { input, future } = bufferInput(p);
+    try {
+      const res = await mcp.callTool('Buffer', 'create_post', input);
+      const bufferPostId = findId(res.payload);
+      await patch(p, { status: 'scheduled', bufferPostId, scheduledFor: future ? p.dueAt : null }, 'scheduled', bufferPostId || undefined);
+      toast(future ? 'Scheduled in Buffer' : 'Time had passed, so it went to the next Buffer slot');
+    } catch (e) {
+      // A timeout may still have created the post: look before saying it failed.
+      if (['server_unavailable', 'upstream_error', 'cancelled'].includes(e?.code)) {
+        const found = await findInBuffer(p).catch(() => null);
+        if (found) { await patch(p, { status: 'scheduled', bufferPostId: found }, 'scheduled', 'found after timeout'); toast('Scheduled in Buffer'); return; }
+      }
+      await patch(p, { status: 'failed', error: mcpMessage(e) }, 'failed', e?.code);
+    }
+  } finally { busy[p.id] = false; render(); }
+}
+async function findInBuffer(p) {
+  const res = await mcp.callTool('Buffer', 'list_posts', { organizationId: ORG, channelIds: [CHANNEL], status: ['scheduled', 'draft', 'needs_approval'], first: 50 }, { cache: false });
+  const edges = res.payload?.edges || [];
+  const hit = edges.find((e) => (e.node?.text || '').trim() === p.caption.trim());
+  return hit?.node?.id || null;
+}
+async function approveAll() {
+  const list = posts.filter((p) => p.week === week && p.status === 'pending');
+  for (const p of list) await approve(p);
+}
+async function unschedule(p) {
+  if (!p.bufferPostId) { await patch(p, { status: 'pending' }, 'unscheduled'); return; }
+  busy[p.id] = true; render();
+  try {
+    await mcp.callTool('Buffer', 'delete_post', { postId: p.bufferPostId });
+    await patch(p, { status: 'pending', bufferPostId: null, scheduledFor: null }, 'unscheduled');
+    toast('Taken out of Buffer');
+  } catch (e) { toast(mcpMessage(e)); }
+  finally { busy[p.id] = false; render(); }
+}
+async function rewrite(p) {
+  const d = drafts[p.id];
+  if (!d.note.trim()) { toast('Type what should change first'); return; }
+  busy[p.id] = true; render();
+  try {
+    const out = await sample([{ role: 'user', content:
+      `Rewrite this Instagram caption for the Stackd poker app.\n\nRules: ${BRAND_RULES}\n\nWhat the owner wants changed: ${d.note}\n\nCurrent caption:\n${d.caption}\n\nReply with the new caption only, nothing else.` }], { modelTier: 'default', cache: false });
+    d.caption = out.text.trim(); d.rewritten = true;
+  } catch (e) { toast(e?.code === 'not_granted' ? 'Claude isn’t allowed on this page' : 'Couldn’t rewrite it. Try again.'); }
+  finally { busy[p.id] = false; render(); }
+}
+async function redo(p) {
+  const d = drafts[p.id];
+  if (!d.note.trim()) { toast('Type what should change first'); return; }
+  await patch(p, { status: 'changes', changeRequest: d.note.trim() }, 'changes', d.note.trim());
+  open[p.id] = null; d.note = '';
+  toast('Sent. You’ll get a notification when it’s redone.');
+  if (config.reviseTriggerId && mcp) {
+    mcp.callTool('Claude Code Remote', 'fire_trigger', { trigger_id: config.reviseTriggerId, text: `Redo post ${p.id} now.` }).catch(() => {});
+  }
+}
+
+document.addEventListener('click', (ev) => {
+  const chip = ev.target.closest('[data-week]');
+  if (chip) { week = chip.dataset.week; render(); return; }
+  if (ev.target.id === 'approveAll') { approveAll(); return; }
+  const b = ev.target.closest('[data-act]'); if (!b) return;
+  const p = posts.find((x) => x.id === b.dataset.id); if (!p) return;
+  const d = drafts[p.id] || (drafts[p.id] = { note: '', caption: p.caption });
+  switch (b.dataset.act) {
+    case 'approve': approve(p); break;
+    case 'edit': open[p.id] = 'edit'; d.caption = p.caption; d.rewritten = false; render(); break;
+    case 'decline': open[p.id] = 'decline'; render(); break;
+    case 'close': open[p.id] = null; render(); break;
+    case 'rewrite': rewrite(p); break;
+    case 'redo': redo(p); break;
+    case 'saveCaption':
+      patch(p, { caption: d.caption.trim(), status: p.status === 'failed' ? 'pending' : p.status, captionHistory: [...(p.captionHistory || []), p.caption] }, 'caption edited')
+        .then(() => { open[p.id] = null; toast('Caption saved. Approve when ready.'); });
+      break;
+    case 'confirmDecline':
+      patch(p, { status: 'declined', declineReason: (d.reason || '').trim() }, 'declined', d.reason).then(() => { open[p.id] = null; });
+      break;
+    case 'undo': patch(p, { status: 'pending', declineReason: null }, 'undo decline'); break;
+    case 'unschedule': unschedule(p); break;
+  }
+});
+document.addEventListener('input', (ev) => {
+  const f = ev.target.dataset?.field; if (!f) return;
+  const d = drafts[ev.target.dataset.id] || (drafts[ev.target.dataset.id] = {});
+  d[f] = ev.target.value;
+});
+
+(async () => {
+  [db, mcp, sample] = await Promise.all([claude.use('db'), claude.use('mcp'), claude.use('sample')]);
+  if (!db) { $('list').innerHTML = '<div class="empty">Sign in to claude.ai to see the posts.</div>'; return; }
+  db.collection('posts').onSnapshot((snap) => {
+    posts = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    render();
+  }, () => { $('list').innerHTML = '<div class="empty">Couldn’t load the posts. Reload the page.</div>'; });
+  db.collection('reports').onSnapshot((snap) => { reports = Object.fromEntries(snap.docs.map((d) => [d.id, d.data()])); render(); });
+  db.doc('config/main').onSnapshot((snap) => { config = snap.data() || {}; });
+})();
+</script>

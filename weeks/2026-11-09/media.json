@@ -1,0 +1,157 @@
+{
+  "p1": {
+    "version": 1,
+    "type": "carousel",
+    "files": [
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p1-v1-1.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p1-v1-1.png",
+        "alt": "Title slide: Same hand, different seat, different play. A king and nine of diamonds below it.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p1-v1-1.jpg"
+      },
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p1-v1-2.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p1-v1-2.png",
+        "alt": "Slide listing three edges of acting last: you see their move first, you control the pot size, and your bluffs work more often.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p1-v1-2.jpg"
+      },
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p1-v1-3.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p1-v1-3.png",
+        "alt": "Comparison slide: under the gun has many players left to act and calls for strong hands only; on the button only the blinds are left, so many more hands can be opened.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p1-v1-3.jpg"
+      },
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p1-v1-4.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p1-v1-4.png",
+        "alt": "Closing slide with the Stackd logo: Train every seat before you sit down. Coming soon to the App Store, stackdpoker.app.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p1-v1-4.jpg"
+      }
+    ]
+  },
+  "p3": {
+    "version": 1,
+    "type": "carousel",
+    "files": [
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p3-v1-1.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p3-v1-1.png",
+        "alt": "Title slide reading 'Know why, not just what. A chart tells you the play. Stackd tells you the reason.'",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p3-v1-1.jpg"
+      },
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p3-v1-2.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p3-v1-2.png",
+        "alt": "Screenshot of the Stackd trainer: a poker table with the player's hand and the answer buttons, showing how often the chart takes each action.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p3-v1-2.jpg"
+      },
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p3-v1-3.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p3-v1-3.png",
+        "alt": "Screenshot of the Why? sheet in Stackd explaining the reason behind the answer and how to adjust against different players.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p3-v1-3.jpg"
+      },
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p3-v1-4.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p3-v1-4.png",
+        "alt": "Closing slide with the Stackd logo: Study the reason, not the chart. Coming soon to the App Store.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p3-v1-4.jpg"
+      }
+    ]
+  },
+  "p4": {
+    "version": 1,
+    "type": "carousel",
+    "files": [
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p4-v1-1.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p4-v1-1.png",
+        "alt": "Title slide: Bankrolls rarely die from bad luck. They die from one bad night.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p4-v1-1.jpg"
+      },
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p4-v1-2.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p4-v1-2.png",
+        "alt": "Comparison slide: chasing means moving up to win it back and not counting the loss; a plan means a stop set in advance, same or lower stakes, and writing every result down.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p4-v1-2.jpg"
+      },
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p4-v1-3.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p4-v1-3.png",
+        "alt": "Closing slide with the Stackd logo: Write it down, every session. Stackd keeps your bankroll honest. Coming soon to the App Store.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p4-v1-3.jpg"
+      }
+    ]
+  },
+  "p5": {
+    "version": 1,
+    "type": "single",
+    "files": [
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p5-v1.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p5-v1.png",
+        "alt": "Meme graphic: Me after one good night: 'Maybe I should play for a living.' A pair of aces below it, with the line 'Sample size: one session.'",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p5-v1.jpg"
+      }
+    ]
+  },
+  "p2": {
+    "version": 1,
+    "type": "reel",
+    "files": [
+      {
+        "kind": "video",
+        "path": "ig/2026-11-09/2026-11-09-p2-v1-reel.mp4",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p2-v1-reel.mp4",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p2-v1-reel.mp4"
+      }
+    ],
+    "cover": {
+      "path": "ig/2026-11-09/2026-11-09-p2-v1-cover.png",
+      "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p2-v1-cover.png",
+      "preview": "weeks/2026-11-09/.preview/2026-11-09-p2-v1-cover.jpg"
+    }
+  },
+  "p6": {
+    "version": 1,
+    "type": "reel",
+    "files": [
+      {
+        "kind": "video",
+        "path": "ig/2026-11-09/2026-11-09-p6-v1-reel.mp4",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p6-v1-reel.mp4",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p6-v1-reel.mp4"
+      }
+    ],
+    "cover": {
+      "path": "ig/2026-11-09/2026-11-09-p6-v1-cover.png",
+      "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p6-v1-cover.png",
+      "preview": "weeks/2026-11-09/.preview/2026-11-09-p6-v1-cover.jpg"
+    }
+  },
+  "p7": {
+    "version": 1,
+    "type": "single",
+    "files": [
+      {
+        "kind": "image",
+        "path": "ig/2026-11-09/2026-11-09-p7-v1.png",
+        "url": "https://raw.githubusercontent.com/dylanesp5/stackd-media/main/ig/2026-11-09/2026-11-09-p7-v1.png",
+        "alt": "Quiz graphic: the cutoff opens to 2.5 big blinds and you are on the button with ace-five of spades. Options: A fold, B call, C 3-bet to about 8 big blinds, D go all-in.",
+        "preview": "weeks/2026-11-09/.preview/2026-11-09-p7-v1.jpg"
+      }
+    ]
+  }
+}

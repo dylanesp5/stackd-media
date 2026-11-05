@@ -1,0 +1,4 @@
+weeks/*/.preview/
+weeks/*/rows/
+node_modules/
+.frames-*
