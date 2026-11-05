@@ -56,9 +56,10 @@ export function cardHtml(code, size = 1) {
   const rank = code[0] === 'T' ? '10' : code[0];
   const [suit, color] = SUITS[code[1]?.toLowerCase()] ?? ['?', '#16161A'];
   const w = Math.round(132 * size);
-  return `<div class="pc" style="width:${w}px;height:${Math.round(w * 1.42)}px;color:${color};font-size:${Math.round(
-    w * 0.5,
-  )}px"><b>${rank}</b><i>${suit}</i></div>`;
+  const h = Math.round(w * 1.4);
+  return `<div class="pc" style="width:${w}px;height:${h}px;color:${color}">
+    <b style="font-size:${Math.round(w * 0.42)}px">${rank}</b>
+    <i style="font-size:${Math.round(w * 0.5)}px">${suit}</i></div>`;
 }
 
 const BASE = (w, h) => `
@@ -73,9 +74,9 @@ html,body{width:${w}px;height:${h}px;overflow:hidden;background:${C.bg};color:${
 .title{font-weight:800;letter-spacing:-2px;line-height:1.04;text-wrap:balance}
 .body{color:${C.soft};line-height:1.42}
 .muted{color:${C.muted}}
-.pc{display:inline-flex;flex-direction:column;justify-content:space-between;background:${C.cardFace};
-  border-radius:14%/10%;padding:6% 9%;box-shadow:0 18px 40px rgba(0,0,0,.45);font-weight:800;line-height:1}
-.pc b{font-weight:800;align-self:flex-start}.pc i{font-style:normal;align-self:flex-end;font-size:.9em}
+.pc{position:relative;flex:none;background:${C.cardFace};border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.45);line-height:1}
+.pc b{position:absolute;left:12%;top:9%;font-weight:800;letter-spacing:-2px}
+.pc i{position:absolute;right:11%;bottom:8%;font-style:normal}
 .cards{display:flex;gap:18px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:14px;font-weight:800;font-size:30px;letter-spacing:1px}
 .brand img{width:44px;height:44px}
