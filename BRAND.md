@@ -48,7 +48,7 @@ Friends (friends only, no public feed)
 - Close friends vs friends: you choose who sees sessions, results, amounts, location,
   training streaks and your month on the leaderboard (all friends / close friends / no one).
 - Sessions and training streaks post by themselves; hands are posted by choice and
-  friends can replay them. Emoji reactions only (any emoji), no comments.
+  friends can replay and comment on them. Everything else gets emoji reactions (any emoji).
 - Monthly leaderboards: profit, hourly, hours, streak and XP.
 - Your bankroll total is never shared.
 
